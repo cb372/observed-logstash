@@ -1,6 +1,6 @@
 # Observed::Logstash
 
-Allows you to use the number of results returned by an Elasticsearch query as an Observed healthcheck.
+Allows you to use the number of results returned by an Elasticsearch query as an [Observed](https://github.com/gree/observed) healthcheck.
 
 Expected use case is searching server logs stored in Logstash format.
 
@@ -8,9 +8,9 @@ You provide an Elasticsearch query and a timespan, and the plugin will search fo
 
 ## Example use cases
 
-* if your web server returned more than X "500 Internal Server Error" responses in the last few minutes, it's probably unhealthy.
+* If your web server returned more than X "500 Internal Server Error" responses in the last few minutes, it's probably unhealthy.
 
-* if it returned fewer than Y "200 OK" responses in the last few minutes, it's probably unhealthy.
+* If it returned fewer than Y "200 OK" responses in the last few minutes, it's probably unhealthy.
 
 ## Installation
 
@@ -28,7 +28,7 @@ Or install it yourself as:
 
 ## Test
 
-Some tests expect a Logstorage instance to be running on Localhost.
+Some tests expect an Elasticsearch instance to be running on Localhost.
 
     $ git clone https://github.com/cb372/observed-logstash.git
     $ cd observed-logstash
@@ -42,11 +42,11 @@ Some tests expect a Logstorage instance to be running on Localhost.
 
 <table>
   <tr><th>Name</th><th>Required?</th><th>Default value</th><th>Description</th></tr>
-  <tr><td>host</td><td>No</td><td>`localhost:9200`</td><td>ES server hostname and port</td></tr>
-  <tr><td>index_name_format</td><td>No</td><td>`logstash-%Y.%m.%d` (Logstash daily)</td><td>Naming format of ES indices</td></tr>
-  <tr><td>query</td><td>Yes</td><td></td><td>A hash representing an ES query, e.g. `{ :term => { :status => 404 } }`</td></tr>
+  <tr><td>host</td><td>No</td><td>localhost:9200</td><td>ES server hostname and port</td></tr>
+  <tr><td>index_name_format</td><td>No</td><td>logstash-%Y.%m.%d (Logstash daily format)</td><td>Naming format of ES indices</td></tr>
+  <tr><td>query</td><td>Yes</td><td></td><td>A hash representing an ES query, e.g. { :term => { :status => 404 } }</td></tr>
   <tr><td>timespan_in_seconds</td><td>Yes</td><td></td><td>Search for logs from the last N seconds</td></tr>
-  <tr><td>max_hits</td><td>No</td><td>1000000</td><td></td></tr>
+  <tr><td>max_hits</td><td>No</td><td>1000000</td><td>Maximum number of matching logs in the last N seconds. If there are more than these, an error will be recorded.</td></tr>
   <tr><td>min_hits</td><td>No</td><td>0</td><td></td></tr>
 </table>
 
