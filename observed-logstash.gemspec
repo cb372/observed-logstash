@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["chris.birchall@gmail.com"]
   spec.description   = %q{observed-logstash}
   spec.summary       = %q{observed-logstash is a plugin for Observed that runs an Elasticsearch query and checks the number of results as a sign of healthiness.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/cb372/observed-logstash"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
