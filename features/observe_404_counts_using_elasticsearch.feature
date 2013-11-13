@@ -29,7 +29,3 @@ Feature: Check the number of 404 errors using an Elasticsearch query
     """
     foo_1.success
     """
-    Then the output should contain:
-    """
-    Get http://google.com
-    """
